@@ -1,5 +1,5 @@
 import random
-
+#function to compare the numbers
 def provide_hint(secret_number, guess):
     feedback = ""
     count = 0
