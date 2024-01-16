@@ -35,7 +35,7 @@ def play_game():
      You have 10 guesses to get it.''')
 
     secret_number = generate_secret_number()
-    
+    game =0
     for i in range(10):
         guess = int(input(f"Guess #{i+1} : "))
         if len(str(guess)) > 3:
@@ -46,6 +46,7 @@ def play_game():
         if success:
             print(feedback)
             print(f"You guessed the number in {i + 1} tries!")
+            game+=1
             break
 
         if i == 9:
@@ -55,11 +56,14 @@ def play_game():
                 play_game()
             else:
                 print("Thanks for playing!")
-    again = input("Great ! Do you want to play again? ")
-    if again == 'yes':
-        play_game()
-    else:
-        print("Thanks for playing!")
+    if game ==1:
+        again = input("Great ! Do you want to play again? ")
+        if again == 'yes':
+            play_game()
+        else:
+            print("Thanks for playing!")
+
+    
 # Function to generate a secret number
 def generate_secret_number():
     numbers = list(range(100, 999))
